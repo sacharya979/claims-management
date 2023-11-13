@@ -1,18 +1,29 @@
 package com.libertymutual.claimsmanagement.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.*;
-@Entity
-@Table(name = "property_insurance_claims")
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import java.time.LocalDate;
+
+@DynamoDBTable(tableName = "PropertyInsurance")
 public class PropertyInsurance extends GeneralInsurance {
 
-    /**
-     * Address of the property affected by the claim.
-     */
-    @Column(name = "property_address", nullable = false)
     private String propertyAddress;
 
+    public PropertyInsurance() {
+        // Default constructor needed by DynamoDB
+    }
+
+    // All-args constructor for convenience
+    public PropertyInsurance(String id, String policyNumber, String customerName,
+                             LocalDate claimStartDate, String estimatedAmount,
+                             String claimReason, String incidentDescription,
+                             LocalDate incidentDate, String additionalDetails,
+                             String propertyAddress) {
+        super(id, policyNumber, customerName, claimStartDate, estimatedAmount,
+                claimReason, incidentDescription, incidentDate, additionalDetails);
+        this.propertyAddress = propertyAddress;
+    }
+
+    @DynamoDBAttribute
     public String getPropertyAddress() {
         return propertyAddress;
     }
@@ -20,4 +31,5 @@ public class PropertyInsurance extends GeneralInsurance {
     public void setPropertyAddress(String propertyAddress) {
         this.propertyAddress = propertyAddress;
     }
+    
 }

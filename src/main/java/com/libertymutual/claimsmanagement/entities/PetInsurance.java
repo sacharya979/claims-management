@@ -1,22 +1,46 @@
 package com.libertymutual.claimsmanagement.entities;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-@Entity
-@Table(name = "pet_insurance_claims")
+
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import java.time.LocalDate;
+
+@DynamoDBTable(tableName = "PetInsurance")
 public class PetInsurance extends GeneralInsurance {
 
-    /**
-     * Type of the animal involved in the claim (e.g., dog, cat).
-     */
-    @Column(name = "animal_type", nullable = false)
     private String animalType;
-
-    /**
-     * Breed of the animal involved in the claim.
-     */
-    @Column(name = "breed_of_animal", nullable = false)
     private String breedOfAnimal;
 
-    // Getters and setters
+    public PetInsurance() {
+        // Default constructor needed by DynamoDB
+    }
+
+    // All-args constructor for convenience
+    public PetInsurance(String id, String policyNumber, String customerName,
+                        LocalDate claimStartDate, String estimatedAmount,
+                        String claimReason, String incidentDescription,
+                        LocalDate incidentDate, String additionalDetails,
+                        String animalType, String breedOfAnimal) {
+        super(id, policyNumber, customerName, claimStartDate, estimatedAmount,
+                claimReason, incidentDescription, incidentDate, additionalDetails);
+        this.animalType = animalType;
+        this.breedOfAnimal = breedOfAnimal;
+    }
+
+    @DynamoDBAttribute
+    public String getAnimalType() {
+        return animalType;
+    }
+
+    public void setAnimalType(String animalType) {
+        this.animalType = animalType;
+    }
+
+    @DynamoDBAttribute
+    public String getBreedOfAnimal() {
+        return breedOfAnimal;
+    }
+
+    public void setBreedOfAnimal(String breedOfAnimal) {
+        this.breedOfAnimal = breedOfAnimal;
+    }
+
 }

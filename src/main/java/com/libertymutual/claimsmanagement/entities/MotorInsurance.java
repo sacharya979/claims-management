@@ -1,30 +1,57 @@
 package com.libertymutual.claimsmanagement.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import java.time.LocalDate;
 
-@Entity
-@Table(name = "motor_insurance_claims")
+@DynamoDBTable(tableName = "MotorInsurance")
 public class MotorInsurance extends GeneralInsurance {
 
-    /**
-     * Make of the vehicle involved in the claim.
-     */
-    @Column(name = "vehicle_make", nullable = false)
     private String vehicleMake;
-
-    /**
-     * Model of the vehicle involved in the claim.
-     */
-    @Column(name = "vehicle_model", nullable = false)
     private String vehicleModel;
-
-    /**
-     * Year of manufacture of the vehicle involved in the claim.
-     */
-    @Column(name = "year_of_manufacture", nullable = false)
     private int yearOfManufacture;
 
-    // Getters and setters
+    public MotorInsurance() {
+        // Default constructor needed by DynamoDB
+    }
+
+    // All-args constructor for convenience
+    public MotorInsurance(String id, String policyNumber, String customerName,
+                          LocalDate claimStartDate, String estimatedAmount,
+                          String claimReason, String incidentDescription,
+                          LocalDate incidentDate, String additionalDetails,
+                          String vehicleMake, String vehicleModel, int yearOfManufacture) {
+        super(id, policyNumber, customerName, claimStartDate, estimatedAmount,
+                claimReason, incidentDescription, incidentDate, additionalDetails);
+        this.vehicleMake = vehicleMake;
+        this.vehicleModel = vehicleModel;
+        this.yearOfManufacture = yearOfManufacture;
+    }
+
+    @DynamoDBAttribute
+    public String getVehicleMake() {
+        return vehicleMake;
+    }
+
+    public void setVehicleMake(String vehicleMake) {
+        this.vehicleMake = vehicleMake;
+    }
+
+    @DynamoDBAttribute
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    @DynamoDBAttribute
+    public int getYearOfManufacture() {
+        return yearOfManufacture;
+    }
+
+    public void setYearOfManufacture(int yearOfManufacture) {
+        this.yearOfManufacture = yearOfManufacture;
+    }
+
 }
