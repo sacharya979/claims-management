@@ -16,9 +16,9 @@ public class GeneralInsurance {
     private String estimatedAmount;
     private String claimReason;
     private String incidentDescription;
-    private String claimStatus;
-    private String claimOutcome;
-    private BigDecimal payoutAmount;
+    public String claimStatus;
+    public String claimOutcome;
+    public BigDecimal payoutAmount;
     private List<String> taskList;
     private List<String> noteList;
     private LocalDate incidentDate; // Optional
@@ -104,5 +104,45 @@ public class GeneralInsurance {
 
     public void setAdditionalDetails(String additionalDetails) {
         this.additionalDetails = additionalDetails;
+    }
+
+    public String getClaimStatus() {
+        return claimStatus;
+    }
+
+    public void setClaimStatus(String claimStatus) {
+        this.claimStatus = claimStatus;
+    }
+
+    public String getClaimOutcome() {
+        return claimOutcome;
+    }
+
+    public void setClaimOutcome(String claimOutcome) {
+        this.claimOutcome = claimOutcome;
+    }
+
+    public BigDecimal getPayoutAmount() {
+        return payoutAmount;
+    }
+
+    public void setPayoutAmount(BigDecimal payoutAmount) {
+        this.payoutAmount = payoutAmount;
+    }
+
+    public List<String> getTaskList() {
+        return taskList;
+    }
+
+    public void setTaskList(List<String> taskList) {
+        this.taskList = taskList;
+    }
+
+    public List<String> getNoteList() {
+        return noteList;
+    }
+
+    public void setNoteList(List<String> noteList) {
+        this.noteList = noteList;
     }
 }

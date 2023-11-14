@@ -15,13 +15,10 @@ public class MotorInsurance extends GeneralInsurance {
     }
 
     // All-args constructor for convenience
-    public MotorInsurance(String id, String policyNumber, String customerName,
-                          LocalDate claimStartDate, String estimatedAmount,
-                          String claimReason, String incidentDescription,
-                          LocalDate incidentDate, String additionalDetails,
-                          String vehicleMake, String vehicleModel, int yearOfManufacture) {
-        super(id, policyNumber, customerName, claimStartDate, estimatedAmount,
-                claimReason, incidentDescription, incidentDate, additionalDetails);
+
+
+    public MotorInsurance(String id, String policyNumber, String customerName, LocalDate claimStartDate, String estimatedAmount, String claimReason, String incidentDescription, LocalDate incidentDate, String additionalDetails, String vehicleMake, String vehicleModel, int yearOfManufacture) {
+        super(id, policyNumber, customerName, claimStartDate, estimatedAmount, claimReason, incidentDescription, incidentDate, additionalDetails);
         this.vehicleMake = vehicleMake;
         this.vehicleModel = vehicleModel;
         this.yearOfManufacture = yearOfManufacture;
