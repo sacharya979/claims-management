@@ -1,7 +1,10 @@
 package com.libertymutual.claimsmanagement.entities;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 @DynamoDBTable(tableName = "GeneralInsurance")
 public class GeneralInsurance {
@@ -13,8 +16,14 @@ public class GeneralInsurance {
     private String estimatedAmount;
     private String claimReason;
     private String incidentDescription;
+    private String claimStatus;
+    private String claimOutcome;
+    private BigDecimal payoutAmount;
+    private List<String> taskList;
+    private List<String> noteList;
     private LocalDate incidentDate; // Optional
     private String additionalDetails; // Optional
+
 
     public GeneralInsurance() {
     }
