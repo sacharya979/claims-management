@@ -20,14 +20,24 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-
-	//for dynamodb
-	implementation 'org.springframework.data:spring-data-releasetrain:Lovelace-SR16'
-	implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.423'
+	//dynamo db
+	implementation group: 'software.amazon.awssdk', name: 'dynamodb', version: '2.20.161'
+	implementation 'software.amazon.awssdk:dynamodb-enhanced:2.20.161'
+	// Spring Data DynamoDB
 	implementation 'com.github.derjust:spring-data-dynamodb:5.1.0'
-
+	// Spring and Test dependencies
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+
+////	//for dynamodb
+//	implementation 'org.springframework.data:spring-data-releasetrain:Lovelace-SR16'
+//	implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.423'
+//	implementation 'com.github.derjust:spring-data-dynamodb:5.1.0'
+//	implementation group: 'software.amazon.awssdk', name: 'dynamodb', version: '2.20.161'
+//// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb
+//	implementation group: 'com.amazonaws', name: 'aws-java-sdk-dynamodb', version: '1.12.588'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//	testImplementation 'org.springframework.security:spring-security-test'
 }
 
 tasks.named('bootBuildImage') {
