@@ -1,11 +1,12 @@
 package com.libertymutual.claimsmanagement.entities;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-
+@DynamoDbBean
 @DynamoDBTable(tableName = "GeneralInsurance")
 public class GeneralInsurance {
 

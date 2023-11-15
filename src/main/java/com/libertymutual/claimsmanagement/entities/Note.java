@@ -1,8 +1,10 @@
 package com.libertymutual.claimsmanagement.entities;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import java.time.LocalDateTime;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
+import java.time.LocalDateTime;
+@DynamoDbBean
 @DynamoDBTable(tableName = "Note")
 public class Note {
 

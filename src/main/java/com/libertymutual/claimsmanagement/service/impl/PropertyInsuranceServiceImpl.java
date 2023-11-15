@@ -5,6 +5,8 @@ import com.libertymutual.claimsmanagement.repository.PropertyInsuranceRepository
 import com.libertymutual.claimsmanagement.service.PropertyInsuranceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -62,7 +64,7 @@ public class PropertyInsuranceServiceImpl implements PropertyInsuranceService {
     }
 
     @Override
-    public void updatePayoutAmount(String id, double amount) {
+    public void updatePayoutAmount(String id, BigDecimal amount) {
         PropertyInsurance insurance = getPropertyInsuranceById(id);
         if (insurance != null) {
             insurance.setPayoutAmount(amount);

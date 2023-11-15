@@ -1,8 +1,10 @@
 package com.libertymutual.claimsmanagement.entities;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
-import java.time.LocalDate;
+import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
+import java.time.LocalDate;
+@DynamoDbBean
 @DynamoDBTable(tableName = "PetInsurance")
 public class PetInsurance extends GeneralInsurance {
 

@@ -1,6 +1,8 @@
 package com.libertymutual.claimsmanagement.service;
 
 import com.libertymutual.claimsmanagement.entities.PropertyInsurance;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface PropertyInsuranceService {
@@ -11,7 +13,7 @@ public interface PropertyInsuranceService {
     void updatePropertyInsuranceStatus(String id, String newStatus);
     List<PropertyInsurance> findUnassessedClaims();
     void updateClaimOutcome(String id, String outcome);
-    void updatePayoutAmount(String id, double amount);
+    void updatePayoutAmount(String id, BigDecimal amount);
     void deletePropertyInsurance(String id);
     // Additional methods as needed...
 }
