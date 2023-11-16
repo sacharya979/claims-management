@@ -3,7 +3,10 @@ package com.libertymutual.claimsmanagement.entities;
 import com.amazonaws.services.dynamodbv2.datamodeling.*;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+
 @DynamoDbBean
 @DynamoDBTable(tableName = "MotorInsurance")
 public class MotorInsurance extends GeneralInsurance {
@@ -19,8 +22,8 @@ public class MotorInsurance extends GeneralInsurance {
     // All-args constructor for convenience
 
 
-    public MotorInsurance(String id, String policyNumber, String customerName, LocalDate claimStartDate, String estimatedAmount, String claimReason, String incidentDescription, LocalDate incidentDate, String additionalDetails, String vehicleMake, String vehicleModel, int yearOfManufacture) {
-        super(id, policyNumber, customerName, claimStartDate, estimatedAmount, claimReason, incidentDescription, incidentDate, additionalDetails);
+    public MotorInsurance(String id, String policyNumber, String customerName, LocalDate claimStartDate, String estimatedAmount, String claimReason, String incidentDescription, String claimStatus, String claimOutcome, BigDecimal payoutAmount, List<String> taskList, List<String> noteList, LocalDate incidentDate, String additionalDetails, String vehicleMake, String vehicleModel, int yearOfManufacture) {
+        super(id, policyNumber, customerName, claimStartDate, estimatedAmount, claimReason, incidentDescription, claimStatus, claimOutcome, payoutAmount, taskList, noteList, incidentDate, additionalDetails);
         this.vehicleMake = vehicleMake;
         this.vehicleModel = vehicleModel;
         this.yearOfManufacture = yearOfManufacture;

@@ -5,8 +5,9 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
+
 @DynamoDbBean
-@DynamoDBTable(tableName = "PropertyInsurance")
 public class PropertyInsurance extends GeneralInsurance {
 
     private String propertyAddress;
@@ -18,12 +19,21 @@ public class PropertyInsurance extends GeneralInsurance {
     }
 
     // All-args constructor for convenience
-    public PropertyInsurance(String id, String policyNumber, String customerName, LocalDate claimStartDate, String estimatedAmount, String claimReason, String incidentDescription, LocalDate incidentDate, String additionalDetails, String propertyAddress, String claimOutcome, BigDecimal payoutAmount, String claimStatus) {
-        super(id, policyNumber, customerName, claimStartDate, estimatedAmount, claimReason, incidentDescription, incidentDate, additionalDetails);
+
+
+    public PropertyInsurance(String propertyAddress, String claimOutcome, BigDecimal payoutAmount, String claimStatus) {
         this.propertyAddress = propertyAddress;
         this.claimOutcome = claimOutcome;
         this.payoutAmount = payoutAmount;
         this.claimStatus = claimStatus;
+    }
+
+    public PropertyInsurance(String id, String policyNumber, String customerName, LocalDate claimStartDate, String estimatedAmount, String claimReason, String incidentDescription, String claimStatus, String claimOutcome, BigDecimal payoutAmount, List<String> taskList, List<String> noteList, LocalDate incidentDate, String additionalDetails, String propertyAddress, String claimOutcome1, BigDecimal payoutAmount1, String claimStatus1) {
+        super(id, policyNumber, customerName, claimStartDate, estimatedAmount, claimReason, incidentDescription, claimStatus, claimOutcome, payoutAmount, taskList, noteList, incidentDate, additionalDetails);
+        this.propertyAddress = propertyAddress;
+        this.claimOutcome = claimOutcome1;
+        this.payoutAmount = payoutAmount1;
+        this.claimStatus = claimStatus1;
     }
 
     public String getClaimStatus() {

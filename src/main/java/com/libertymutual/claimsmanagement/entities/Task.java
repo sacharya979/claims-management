@@ -5,7 +5,6 @@ import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;
 
 import java.time.LocalDate;
 @DynamoDbBean
-@DynamoDBTable(tableName = "Task")
 public class Task {
 
     private String id;
